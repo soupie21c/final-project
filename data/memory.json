@@ -1,0 +1,25 @@
+{
+  "user_name": "훈련생",
+  "selected_mentor": "harin",
+  "camp_passed": true,
+  "academy_passed": true,
+  "score": 140,
+  "badges": [
+    "🏅 역할 마스터 (Role Hacker)",
+    "🥈 표형식 전문가 (Format Architect)",
+    "🥉 제약 조건의 달인 (Constraint Master)",
+    "🎯 팩트체커 (Hallucination Buster)",
+    "👑 프롬프트 마스터 (Grand Prompter)"
+  ],
+  "solved_quests": [
+    "camp_01",
+    "camp_02",
+    "camp_03",
+    "academy_01",
+    "academy_02"
+  ],
+  "weakness_history": {
+    "할루시네이션 가드레일 부재": 1
+  },
+  "total_tunes": 0
+}
