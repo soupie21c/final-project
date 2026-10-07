@@ -1,124 +1,205 @@
-# 🚀 Prompt Camp to Academy (AI 프롬프트 사관학교)
+# 🚀 Prompt Camp to Academy
 
-> **"두루뭉술한 질문은 그만! 나만의 AI 스타 멘토와 함께 퀘스트를 깨며 완성하는 실전 AI 문해력(AI Literacy) 트레이닝 서비스"**
+> **AI 네이티브 프롬프트 훈련 플랫폼**
+> 두루뭉술한 질문은 그만! 스타 멘토와 함께 퀘스트를 깨며 완성하는 실전 AI 문해력 과정
 
----
-
-## 📌 1. 프로젝트 소개
-대부분의 생성형 AI 입문자는 질문창 앞에서 무엇을 어떻게 입력해야 할지 몰라 단답형으로 질문하고, AI가 뻔하고 두루뭉술한 답변을 내놓으면 "AI는 별로네" 하며 쉽게 포기합니다.
-
-**Prompt Camp to Academy**는 이러한 초보자의 진입장벽을 허물기 위해 만들어진 **AI 네이티브 훈련 시뮬레이션 플랫폼**입니다.
-- **1단계 Prompt Camp (부트캠프)**: 타이핑 부담 없는 객관식/빈칸 퀴즈를 통해 필수 3요소(역할, 형식, 제약)를 게임처럼 학습합니다.
-- **2단계 Prompt Academy (사관학교)**: 부트캠프 통과자에게 주어지는 실전 미션(할루시네이션 팩트체크 사냥 및 복합 지시)을 수행합니다.
-- **1:1 프롬프트 튜닝 연구소**: 평소 내 질문 vs 멘토가 교정한 질문의 답변을 **좌/우 2분할 화면**으로 실시간 대조하여 드라마틱한 품질 차이를 직접 체감합니다.
-- **3인 3색 스타 멘토링 & Memory**: 츤데레 선배, 비타민 아이돌, 열정 교관 중 원하는 멘토를 선택하고 나의 프롬프트 취약점을 기억하는 개인화 코칭을 받습니다.
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.32%2B-FF4F8B?logo=streamlit&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT-4o%20mini-74AA9C?logo=openai&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-orange.svg)
 
 ---
 
-## 👥 2. 팀원 및 역할
+## ✨ 프로젝트를 한 문장으로
 
-| 이름 | 역할 | 담당 업무 |
-| :---: | :---: | :--- |
-| **팀원 1** | **PM / AI Agent** | 서비스 기획 총괄, AI Agent(Evaluator & Tuning Agent) 아키텍처 및 프롬프트 엔지니어링 |
-| **팀원 2** | **Frontend / UI** | Streamlit 기반 반응형 웹 인터페이스, 퀘스트 컴포넌트 및 좌우 분할 연구소 화면 구현 |
-| **팀원 3** | **AI / Memory** | Long-term Memory 모듈 설계, 멘토 페르소나 System Prompt 최적화, 취약점 분석 로직 구축 |
-| **팀원 4** | **Backend / Data** | 퀘스트 데이터셋 구축, 피드백 수집 및 영속화 데이터 파이프라인 관리 |
-| **팀원 5** | **QA / 배포** | Streamlit Community Cloud 배포, 실사용자(5인 이상) 테스트 진행 및 피드백 수렴 |
+**Prompt Camp to Academy**는 AI를 단순히 질문하는 도구가 아니라, **프롬프트를 반복해서 개선하고 자신의 AI 사용법을 기록하는 학습 공간**입니다.
+
+왕초보는 부담 없는 퀘스트부터 시작하고, 중급 사용자는 실전 미션과 1:1 프롬프트 튜닝을 통해 단계적으로 성장합니다.
 
 ---
 
-## 🛠️ 3. 기술 스택
+## 🎯 핵심 목표
 
-- **Language & Framework**: Python 3.10+, Streamlit
-- **AI & LLM**: OpenAI API (`gpt-4o-mini`), Few-shot Prompt Tuning Engine
-- **Storage & Memory**: Local JSON 기반 Long-term Memory & Feedback Repository
-- **Deployment**: Streamlit Community Cloud / Vercel / Render
+### AI 문해력 향상
+질문자의 의도, 역할, 맥락, 출력 형식까지 명확히 전달하는 프롬프트를 학습합니다.
+
+### 실전 경험
+할루시네이션, 문서 요약, 데이터 가공, 복잡한 지시 등이 포함된 실제 업무형 미션을 수행합니다.
+
+### 개인화된 학습
+유형별 스타 멘토를 선택하고, 사용자의 취약점과 학습 이력을 기억합니다.
+
+### 재미 있는 성장
+객관식 퀘스트, 배지, 점수, 진행도까지 게임처럼 진행합니다.
 
 ---
 
-## 🏗️ 4. 시스템 아키텍처
+## 🧭 두 단계의 성장
 
-```mermaid
-graph TD
-    User([사용자 / 훈련생]) --> UI[Streamlit 반응형 웹 UI]
-    
-    subgraph "Core Service Layer"
-        UI --> Tab1[⛺ Prompt Camp 퀘스트]
-        UI --> Tab2[🏛️ Prompt Academy 사관학교]
-        UI --> Tab3[🔬 1:1 튜닝 연구소]
-        UI --> Tab4[💬 실사용자 피드백]
-    end
-
-    subgraph "AI Agent & Memory Layer"
-        Tab3 --> Evaluator[Evaluator Agent<br/>프롬프트 진단]
-        Tab3 --> Tuner[Tuning Agent<br/>Few-shot 재작성]
-        Tab3 --> Mentor[Persona Agent<br/>3인 멘토 스타일 총평]
-        
-        Evaluator --> LLM[OpenAI GPT-4o-mini]
-        Tuner --> LLM
-        Mentor --> LLM
-        
-        Tab1 & Tab2 & Tab3 <--> Memory[(Long-term Memory<br/>취약점/배지/점수)]
-        Tab4 --> FeedbackDB[(피드백 데이터베이스)]
-    end
+```text
+┌──────────────────────────────────────────────────────────────┐
+│  1단계: Prompt Camp                                      │
+│  └─ 기초 프롬프트 3개 마스터                              │
+│       ↓                                                   │
+│  🏆 사관학교 입교 합격증 발급                             │
+│       ↓                                                   │
+│  2단계: Prompt Academy                                    │
+│  └─ 할루시네이션 사냥 및 실전 프롬프트 미션            │
+│       ↓                                                   │
+│  🔬 1:1 프롬프트 연구소                                  │
+│       ↓                                                   │
+│  💬 피드백 및 개인화된 학습 이력                         │
+└──────────────────────────────────────────────────────────────┘
 ```
 
----
+### 1단계 — Prompt Camp
+- 타이핑 부담 없는 객관식 및 빈칸 퀴즈
+- 역할, 목적, 출력 형식 등 핵심 3요소 학습
+- 3개 퀘스트 완료 시 사관학교 입교 배지 발급
 
-## 🤖 5. 핵심 AI 활용 및 기술 요건
-
-### 1) AI Agent (다중 에이전트 파이프라인)
-- **Evaluator Agent**: 사용자의 질문에서 역할(Role), 맥락(Context), 출력형식(Format)의 포함 여부를 분석
-- **Tuning Agent**: 거친 단답형 질문을 전문가 수준의 구조화된 프롬프트로 재작성하고 고품질 결과물 동시 생성
-- **Persona Agent**: 선택된 멘토(차도혁-선배, 유하린-아이돌, 강태산-교관)의 고유한 성격과 말투로 1:1 현장 코칭 총평 생성
-
-### 2) Long-term Memory (취약점 및 학습 이력 영속화)
-- 사용자가 문제를 풀며 자주 실수하는 취약점 패턴(예: '출력 형식 누락 2회')을 자동 집계
-- 사용자의 누적 점수 및 획득 배지를 관리하여 다음 훈련 시 멘토 피드백에 개인화 반영
-
-### 3) 2단계 게이미피케이션 (Gamification)
-- 부트캠프 3개 퀘스트 클리어 시 공식 **'사관학교 입교 합격증'** 발급 및 사관학교 전용 심화 코스 오픈
+### 2단계 — Prompt Academy
+- AI가 거짓말을 할 때 사실 확인하기
+- 복합 지시와 문서 데이터 가공 수행
+- 멘토가 개선한 프롬프트와 자신의 질문 비교
 
 ---
 
-## 🚀 6. 설치 및 실행 방법
+## 👥 스타 멘토 시스템
+
+사용자는 자신의 학습 성향에 맞는 멘토를 선택할 수 있습니다.
+
+| 멘토 | 성격 | 학습 방식 |
+|---|---|---|
+| **차도혁** | 날카로운 천재 선배 | 핵심을 찌르는 팩트 기반 코칭 |
+| **유하린** | 따뜻하고 자존심 지킴이 | 긍정적 격려와 단계별 지원 |
+| **강태산** | 열정적인 교관 | 체계적 미션과 높은 에너지 안내 |
+
+### 멘토 이미지
+
+![차도혁](assets/dohyuk.jpg)
+![유하린](assets/harin.jpg)
+![강태산](assets/taesan.jpg)
+
+---
+
+## 🧠 AI 에이전트 구조
+
+```mermaid
+flowchart LR
+    User[사용자] --> UI[Streamlit UI]
+    UI --> Evaluator[Evaluator Agent]
+    UI --> Tuner[Tuning Agent]
+    UI --> Persona[Persona Agent]
+
+    Evaluator --> LLM[OpenAI GPT-4o-mini]
+    Tuner --> LLM
+    Persona --> LLM
+
+    Evaluator --> Memory[(Long-term Memory)]
+    Tuner --> Memory
+    Persona --> Memory
+    UI --> Feedback[(Feedback Repository)]
+```
+
+### Evaluator Agent
+사용자의 프롬프트에서 역할, 맥락, 출력 형식, 목적의 충족 여부를 분석합니다.
+
+### Tuning Agent
+거친 질문을 구조화된 전문가 수준 프롬프트로 재작성하고, 수정 전후 결과를 함께 제공합니다.
+
+### Persona Agent
+선택한 멘토의 성격과 말투를 반영해 개인화된 코칭을 생성합니다.
+
+### Long-term Memory
+- 반복되는 프롬프트 취약점 저장
+- 누적 점수 및 배지 관리
+- 다음 학습에 반영되는 개인화 이력 유지
+
+---
+
+## 🖥️ 서비스 화면
+
+### Prompt Camp
+객관식 선택과 빈칸 퀴즈를 통해 프롬프트의 핵심 요소를 배웁니다.
+
+### Prompt Academy
+실제 문제가 발생했을 때 AI의 거짓말과 잘못된 답변을 판별합니다.
+
+### 1:1 프롬프트 연구소
+사용자의 질문과 멘토가 개선한 질문을 좌우로 비교해 품질 차이를 직접 체감합니다.
+
+### 학습 대시보드
+- 전체 진도율
+- 누적 점수
+- 개인별 취약점
+- 보유 배지
+- 선택한 스타 멘토
+
+---
+
+## 💻 실행 방법
 
 ### 요구사항
 - Python 3.10 이상
+- OpenAI API 키는 선택 사항
+- API 키가 없으면 내장된 스마트 시뮬레이션 모드로 실행 가능
 
-### 설치 및 로컬 실행
+### 설치
+
 ```bash
-# 1. 저장소 클론
 git clone https://github.com/your-team/prompt-camp-academy.git
 cd prompt-camp-academy
-
-# 2. 의존성 패키지 설치
 pip install -r requirements.txt
+```
 
-# 3. Streamlit 앱 실행
+### 실행
+
+```bash
 streamlit run app.py
 ```
-> 브라우저에서 `http://localhost:8501`로 자동 접속됩니다.  
-> (OpenAI API 키가 없어도 자체 내장된 스마트 시뮬레이션 데모가 즉시 동작합니다.)
+
+브라우저에서 **http://localhost:8501**을 엽니다.
 
 ---
 
-## 📊 7. 실사용자 테스트 및 피드백 결과 (5인 이상 요건)
+## 🧩 기술 스택
 
-서비스 내 내장된 피드백 수집 탭을 통해 동료 학습자 및 일반 사용자의 의견을 수집하고 반영하였습니다:
-
-| 테스터 | 소속 | 평점 | 주요 피드백 및 반영 사항 |
-| :---: | :---: | :---: | :--- |
-| **김OO** | AI 교육생 | 5.0 ⭐ | "좌우로 결과가 한눈에 비교되니까 왜 형식을 지정해야 하는지 바로 이해됨." ➡️ **추천 질문 원클릭 버튼 추가 반영** |
-| **이OO** | 비개발자 | 5.0 ⭐ | "질문창에 뭘 칠지 항상 막막했는데 객관식 퀴즈부터 시작해서 부담이 전혀 없었음." |
-| **박OO** | 취업준비생 | 4.0 ⭐ | "차도혁 선배 말투가 너무 찰떡이라 재밌음. 멘토 음성도 나오면 좋겠음." ➡️ **향후 TTS 도입 계획 수립** |
-| **최OO** | 직장인 | 5.0 ⭐ | "회사 보고서 요약 프롬프트 짤 때 연구소에서 튜닝한 프롬프트 그대로 복사해서 써먹음." |
-| **정OO** | 대학생 | 5.0 ⭐ | "사관학교 합격증 나오는 화면에서 성취감이 들었음." ➡️ **배지 보관함 시각화 개선** |
+| 구분 | 기술 |
+|---|---|
+| UI | Streamlit |
+| 언어 | Python 3.10+ |
+| AI | OpenAI GPT-4o-mini |
+| 데이터 | JSON 기반 Memory 및 Feedback |
+| 배포 | Streamlit Community Cloud, Vercel, Render |
 
 ---
 
-## 🔗 8. 주요 링크 및 산출물
-- **배포 URL**: *(Streamlit Cloud 배포 URL 입력)*
-- **기획서**: [01_프로젝트_기획서.md](01_프로젝트_기획서.md)
-- **기능 요구 명세서**: [02_기능_요구사항_명세서.md](02_기능_요구사항_명세서.md)
-- **화면 흐름 설계서**: [03_서비스_화면_및_사용자_흐름_설계.md](03_서비스_화면_및_사용자_흐름_설계.md)
+## 📚 프로젝트 문서
+
+- [프로젝트 기획서](01_프로젝트_기획서.md)
+- [기능 요구사항 명세서](02_기능_요구사항_명세서.md)
+- [서비스 화면 및 사용자 흐름 설계](03_서비스_화면_및_사용자_흐름_설계.md)
+- [프로젝트 실행기](run_app.bat)
+
+---
+
+## 📊 사용자의 학습 결과
+
+| 사용자 | 평점 | 핵심 경험 |
+|---|---:|---|
+| AI 교육생 | 5.0 ⭐ | 좌우 비교로 프롬프트 형식 이해 |
+| 비개발자 | 5.0 ⭐ | 객관식 퀘스트로 부담 없이 시작 |
+| 취업준비생 | 4.0 ⭐ | 스타 멘토의 재밌는 코칭 경험 |
+| 직장인 | 5.0 ⭐ | 실전 프롬프트를 즉시 활용 |
+| 대학생 | 5.0 ⭐ | 배지와 성취감으로 학습 완료 |
+
+---
+
+## 🚀 지금 시작해보세요
+
+1. 저장소를 복제합니다.
+2. 의존성을 설치합니다.
+3. `streamlit run app.py`로 실행합니다.
+4. 멘토를 선택하고 첫 번째 퀘스트를 풀어보세요.
+
+> **AI는 답을 주는 도구가 아니라, 질문을 제대로 만드는 능력을 키우는 학습 파트너가 됩니다.**
